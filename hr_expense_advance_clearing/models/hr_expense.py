@@ -47,8 +47,6 @@ class HrExpense(models.Model):
                 )
             if expense.tax_ids:
                 raise ValidationError(_("Employee advance, all taxes must be removed"))
-            if expense.payment_mode != "own_account":
-                raise ValidationError(_("Employee advance, paid by must be employee"))
         return True
 
     @api.onchange("advance")
